@@ -22,8 +22,20 @@ print(count_of_last_word("Hello world"))
 def word_contains_index(words:list,x:str):
     ans = []
     for i,j in enumerate(words):
-        if x in j:
-            ans.append(i)
+        for char in j:
+            if char == x:
+                ans.append(i)
+                break
     return ans
 
-print(word_contains_index(["abc","bcs","cab","poi"],"a"))
+print(word_contains_index(["leet","code","cab","poi"],"a"))
+
+# Jewels and Stones
+def jwels_and_stones(jewel:str,stones:str):
+    count  = 0
+    for i in stones:
+        if i in jewel:
+            count+=1
+    return count
+
+print(jwels_and_stones("aA","aAAbbbb"))
