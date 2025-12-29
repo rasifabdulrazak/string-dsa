@@ -39,3 +39,23 @@ def jwels_and_stones(jewel:str,stones:str):
     return count 
 
 print(jwels_and_stones("aA","aAAbbbb"))
+
+# Find Most Frequent Vowel and Consonant
+def freq_count_vowel(word):
+    vowel = ['a','e','i','o','u']
+    count = {}
+    max_vowel = 0
+    max_cons = 0
+    
+    for char in word:
+        count[char] = count.get(char,0) + 1
+        
+    for key,value in count.items():
+        if key in vowel and count[key] > max_vowel:
+            max_vowel = count[key]
+        elif key not in vowel and count[key] > max_cons:
+            max_cons = count[key]
+            
+    return max_cons + max_vowel
+
+print(freq_count_vowel("successses"))  
