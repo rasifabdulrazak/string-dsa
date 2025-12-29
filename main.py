@@ -58,4 +58,39 @@ def freq_count_vowel(word):
             
     return max_cons + max_vowel
 
-print(freq_count_vowel("successses"))  
+print(freq_count_vowel("successses"))
+
+
+# Split a String in Balanced Strings
+def split_balanced_string(word:str):
+    l = 0
+    r = 0
+    count = 0
+    for i in word:
+        if i =='R':
+            r += 1
+        else:
+            l += 1
+        if l == r:
+            count += 1
+            l = r = 0
+    return count
+
+print(split_balanced_string("RRLLL"))
+
+def split_balanced_string_one_var(word:str):
+    var = 0
+    count = 0
+    
+    for i in word:
+        if i == "R":
+            var += 1
+        else:
+            var -= 1
+            
+        if var == 0:
+            count += 1
+            
+    return count
+
+print(split_balanced_string_one_var("RLRL"))
