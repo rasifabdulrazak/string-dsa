@@ -93,4 +93,4 @@ def split_balanced_string_one_var(word:str):
             
     return count
 
-print(split_balanced_string_one_var("RLRL"))
+print(split_balanced_string_one_var("RLRL")) 
