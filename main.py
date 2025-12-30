@@ -120,3 +120,13 @@ def valid_palindrome_2_pointer(word:str):
     return True
 
 print(valid_palindrome_2_pointer("A man, a plan, a canal: Panama"))
+
+def largest_odd_number(num:str):
+    n = len(num) - 1
+    while n >= 0:
+        if int(num[n]) % 2 == 1:
+            return num[0:n+1]
+        n -= 1
+    return ""
+
+print(largest_odd_number("4322"))
