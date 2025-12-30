@@ -94,3 +94,29 @@ def split_balanced_string_one_var(word:str):
     return count
 
 print(split_balanced_string_one_var("RLRL")) 
+
+#Valid Palindrome
+def valid_palindrome(word:str):
+    wo = "".join([char for char in word if char.isalnum()])
+    og = wo.lower()
+    return og == og[::-1]
+
+
+print(valid_palindrome("A man, a plan, a canal: Panama"))
+    
+def valid_palindrome_2_pointer(word:str):
+    word = word.lower()
+    i = 0
+    j = len(word) - 1
+    while i < j:
+        if not word[i].isalnum(): 
+            i += 1
+        elif not word[j].isalnum(): 
+            j -= 1
+        elif word[i] == word[j]:
+            i += 1
+            j -= 1
+        else: return False
+    return True
+
+print(valid_palindrome_2_pointer("A man, a plan, a canal: Panama"))
