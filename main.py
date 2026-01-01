@@ -130,3 +130,16 @@ def largest_odd_number(num:str):
     return ""
 
 print(largest_odd_number("4322"))  
+
+def longest_common_prefix(words:list):
+    if not words: return ""
+    prefix = words[0]
+    print(prefix)
+    for s in words[1:]:
+        while not s.startswith(prefix):
+            prefix = prefix[:-1]
+            if prefix == "":
+                return ""
+    return prefix
+
+print(longest_common_prefix(["flower","flow","flight"]))
