@@ -151,4 +151,49 @@ def valid_anagram(s:str,t:str):
 print(valid_anagram("pre","erp"))
 
 def valid_anagram1(s:str,t:str):
-    pass
+    if len(s) != len(t): return False
+    mapi = {}
+    for i in s:
+        mapi[i] = mapi.get(i,0) + 1
+        
+    for i in t:
+        if i not in mapi or mapi[i]<0:
+            return False
+        mapi[i] -= 1
+    return True
+
+print(valid_anagram1("pre","erp"))
+    
+def is_isomorphic(s:str,t:str):
+    if len(s) != len(t): return False
+    hashMap = {}
+    for i,j in zip(s,t):
+        if i in hashMap and hashMap[i] != j:
+            return False
+        for key,value in hashMap.items():
+            if value == j and i != key:
+                return False
+        hashMap[i] = j
+        
+    return True
+
+print(is_isomorphic("bac","abc"))
+
+def is_isomorphic_two(s:str,t:str):
+    if len(s) != len(t): return False
+    s_to_t = {}
+    t_to_s = {}
+    
+    for i,j in zip(s,t):
+        if i in s_to_t and s_to_t[i] != j: return False
+        if j in t_to_s and t_to_s[j] != i: return False
+        s_to_t[i] = j
+        t_to_s[j] = i
+    return True
+
+print(is_isomorphic_two("badc","abbc"))
+    
+def isIsomorphicthree(s: str, t: str) -> bool:
+        return len(set(zip(s, t))) == len(set(s)) == len(set(t))
+    
+print(isIsomorphicthree("badc","abbc"))
