@@ -143,3 +143,12 @@ def longest_common_prefix(words:list):
     return prefix
 
 print(longest_common_prefix(["flower","flow","flight"]))
+
+def valid_anagram(s:str,t:str):
+    if len(s)!=len(t): return False
+    return sorted(s) == sorted(t)
+
+print(valid_anagram("pre","erp"))
+
+def valid_anagram1(s:str,t:str):
+    pass
