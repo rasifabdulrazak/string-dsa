@@ -197,3 +197,18 @@ def isIsomorphicthree(s: str, t: str) -> bool:
         return len(set(zip(s, t))) == len(set(s)) == len(set(t))
     
 print(isIsomorphicthree("badc","abbc"))
+
+
+def group_anagram(strs:list):
+    if not strs: return []
+    hashMap = {}
+    for word in strs:
+        sort = str(sorted(word))
+        if sort in hashMap:
+            hashMap[sort].append(word)
+        else:
+            hashMap[sort] = [word]
+    return list(hashMap.values())
+
+print(group_anagram(["eat","tea","tan","ate","nat","bat"]))
+        
